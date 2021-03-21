@@ -17,5 +17,6 @@ class Article(models.Model):
     title = models.CharField(max_length =60)
     post = models.TextField()
     AHEnthusiast = models.ForeignKey(Editor)
+    pub_date = models.DateTimeField(auto_now_add=True)
 
 
