@@ -37,3 +37,10 @@ def article_of_day(request):
     date = dt.date.today()
     articles = Article.todays_article()
     return render(request, 'all-articles/today-article.html', {"date": date,"articles": articles})
+
+def article(request,article_id):
+    try:
+        article = Article.objects.get(id = article_id)
+    except DoesNotExist:
+        raise Http404()
+    return render(request,"all-articles/article.html", {"article":article})
