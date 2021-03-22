@@ -33,8 +33,17 @@ class Enthusiast(models.Model):
 class Location(models.Model):
     name = models.CharField(max_length = 40)
 
+    @classmethod
+    def get_locations(cls):
+        locations = Location.objects.all()
+        return locations
+    
     def __str__(self):
         return self.name
+    
+    def save_location(self):
+        self.save()
+       
 
 class Article(models.Model):
     title = models.CharField(max_length =60)

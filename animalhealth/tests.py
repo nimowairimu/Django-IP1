@@ -32,4 +32,22 @@ class EnthusiastTestClass(TestCase):
 class TestLocation(TestCase):
     
     def setUp(self):
-        self.location = Location(name = 'S')
+        self.location = Location(name = 'Samburu')
+        self.location.save_location()
+
+    def test_save_location(self):
+        self.location.save_location()
+        locations = Location.objects.all()
+        self.assertTrue(len(locations) > 0 )
+    
+    
+    def test_get_locations(self):
+        self.location.save_location()
+        locations = Location.objects.all()
+        self.assertTrue(len(locations) == 1)
+    
+    # def test_update_location(self):
+    #     new_location = 'kericho'
+    #     self.location.update_location(self.location.id, new_location)
+    #     changed_location = Location.objects.filter(name='kericho')
+        # self.assertTrue(len(changed_location) > 0)
