@@ -6,7 +6,16 @@ class Enthusiast(models.Model):
     first_name = models.CharField(max_length =30)
     last_name = models.CharField(max_length =30)
     email = models.EmailField()
+    # location = models.ForeignKey(Location)
+    # article = models.ForeignKey(Article)
 
+   
+    @classmethod
+    def get_by_email(cls, email):
+       image = cls.objects.filter(email=email).all()
+       return email
+
+    #
     def __str__(self):
         return self.first_name
     
@@ -15,10 +24,11 @@ class Enthusiast(models.Model):
     
     def delete_enthusiast(self):
         self.delete()
+    
 
     
-    # class Meta:
-    #     ordering = ['first_name']
+    class Meta:
+        ordering = ['first_name']
 
 class Location(models.Model):
     name = models.CharField(max_length = 40)

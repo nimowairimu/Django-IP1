@@ -17,4 +17,19 @@ class EnthusiastTestClass(TestCase):
         self.james.delete_enthusiast()
         enthusiast = Enthusiast.objects.all()
         self.assertTrue(len(enthusiast) == 0)
+    
+    # def test_update_enthusiast(self):
+    #     self.james.save_enthusiast()
+    #     Changed_enthusiast = self.james.filter(first_name).update(first_name = "Nick")
+    #     self.assertEqual(changed_enthusiast.first_name, "Nick")
 
+    def test_get_by_email(self):
+        self.james.save_enthusiast()
+        found_enthusiast = self.james.get_by_email(self.james.email)
+        enthusiast = Enthusiast.objects.filter(email=self.james.email)
+        self.assertTrue(found_enthusiast, enthusiast)
+    
+class TestLocation(TestCase):
+    
+    def setUp(self):
+        self.location = Location(name = 'S')
