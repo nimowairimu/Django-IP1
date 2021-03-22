@@ -3,6 +3,10 @@ from .models import Article,Enthusiast,Location
 
 
 class EnthusiastTestClass(TestCase):
+    '''
+    This is a an animal health enthusiast who is passionate about research of the various deseases that afects animals specicially cattle and writes articles on the causes and the possible measures that farmers can take
+    Provide information to farmers so that they can identify a disease and a possible outbreak which can then be attended to before it gets out of hand
+    '''
     # Set up method
     def setUp(self):
         self.james = Enthusiast(first_name = 'James',last_name = 'Muriuki',email ='james@moringaschool.com' )
@@ -22,6 +26,12 @@ class EnthusiastTestClass(TestCase):
     #     self.james.save_enthusiast()
     #     Changed_enthusiast = self.james.filter(first_name).update(first_name = "Nick")
     #     self.assertEqual(changed_enthusiast.first_name, "Nick")
+    def test_update_enthusiast(self):
+        new_first_name = 'nick'
+        self.james.update_enthusiast(self.james.first_name, new_first_name)self.assertEqual(changed_name, self.james.'nick')
+        changed_name = Enthusiast.objects.filter(first_name='nick')
+        self.assertTrue(len(changed_name) > 0)
+
 
     def test_get_by_email(self):
         self.james.save_enthusiast()
@@ -30,6 +40,9 @@ class EnthusiastTestClass(TestCase):
         self.assertTrue(found_enthusiast, enthusiast)
     
 class TestLocation(TestCase):
+    '''
+    This model is used to show the different Loctions that the animal health enthusiast is focusing on in the article
+    '''
     
     def setUp(self):
         self.location = Location(name = 'Samburu')
@@ -46,8 +59,16 @@ class TestLocation(TestCase):
         locations = Location.objects.all()
         self.assertTrue(len(locations) == 1)
     
-    # def test_update_location(self):
-    #     new_location = 'kericho'
-    #     self.location.update_location(self.location.id, new_location)
-    #     changed_location = Location.objects.filter(name='kericho')
-        # self.assertTrue(len(changed_location) > 0)
+    def test_update_location(self):
+        new_location = 'kericho'
+        self.location.update_location(self.location.id, new_location)
+        changed_location = Location.objects.filter(name='kericho')
+        self.assertTrue(len(changed_location) > 0)
+    
+    def test_delete_location(self):
+        self.location.delete_location()
+        location = Location.objects.all()
+        self.assertTrue(len(location) == 0)
+
+class ArticleTestClass(TestCase):
+    def setUp(self):
