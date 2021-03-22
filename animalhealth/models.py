@@ -1,4 +1,5 @@
 from django.db import models
+import datetime as dt
 
 # Create your models here.
 
@@ -68,4 +69,11 @@ class Article(models.Model):
     )
     pub_date = models.DateTimeField(auto_now_add=True)
     location = models.ManyToManyField(Location)
+    article_image = models.ImageField(upload_to = 'articles/')
+
+    @classmethod
+    def todays_article(cls):
+        today = dt.date.today()
+        news = cls.objects.filter(pub_date__date = today)
+        return news
 

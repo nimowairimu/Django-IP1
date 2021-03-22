@@ -1,13 +1,14 @@
 from django.shortcuts import render,redirect
 from django.http  import HttpResponse,Http404
 import datetime as dt
+from .models import Article
 
 
 
 
-def article_of_day(request):
-    date = dt.date.today()
-    return render (request,'all-articles/today-article.html',{"date": date})
+# def article_of_day(request):
+#     date = dt.date.today()
+#     return render (request,'all-articles/today-article.html',{"date": date})
 
 
     
@@ -27,5 +28,12 @@ def past_days_article(request,past_date):
 
     if date == dt.date.today():
         return redirect(article_of_day)
+    articles = Article.days_article(date)
 
-    return render(request, 'all-articles/old-articles.html', {"date": date})
+
+    return render(request, 'all-articles/old-articles.html', {"date": date , "articles": articles})
+
+def article_of_day(request):
+    date = dt.date.today()
+    articles = Article.todays_article()
+    return render(request, 'all-articles/today-article.html', {"date": date,"articles": articles})
