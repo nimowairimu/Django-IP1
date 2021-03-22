@@ -10,16 +10,25 @@ class Enthusiast(models.Model):
     def __str__(self):
         return self.first_name
     
+    def save_enthusiast(self):
+        self.save()
+    
     class Meta:
         ordering = ['first_name']
 
-# class Article(models.Model):
-#     title = models.CharField(max_length =60)
-#     post = models.TextField()
-#     Enthusiast = models.ForeignKey(
-#         'Enthusiast',
-#         on_delete= models.DO_NOTHING,
-#     )
-#     pub_date = models.DateTimeField(auto_now_add=True)
+class Location(models.Model):
+    name = models.CharField(max_length = 40)
 
+    def __str__(self):
+        return self.name
+
+class Article(models.Model):
+    title = models.CharField(max_length =60)
+    post = models.TextField()
+    Enthusiast = models.ForeignKey(
+        'Enthusiast',
+        on_delete= models.DO_NOTHING,
+    )
+    pub_date = models.DateTimeField(auto_now_add=True)
+    location = models.ManyToManyField(Location)
 

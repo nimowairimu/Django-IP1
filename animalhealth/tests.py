@@ -1,13 +1,13 @@
 from django.test import TestCase
-from .models import Article,AHEnthusiast 
+from .models import Article,Enthusiast,Location
 
 
-class AHEnthusiastTestClass(TestCase):
+class EnthusiastTestClass(TestCase):
     # Set up method
     def setUp(self):
-        self.james = AHEnthusiast(first_name = 'James',last_name = 'Muriuki',email ='james@moringaschool.com' )
+        self.james = Enthusiast(first_name = 'James',last_name = 'Muriuki',email ='james@moringaschool.com' )
     
-    # Testing  instance
-    def test_instance(self):
-        self.assertTrue(isinstance(self.james,AHEnthusiast))
-
+    def test_save_method(self):
+        self.james.save_enthusiast()
+        enthusiast = Enthusiast.objects.all()
+        self.assertTrue(len(enthusiast) > 0)
