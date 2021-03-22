@@ -59,6 +59,12 @@ class TestLocation(TestCase):
         locations = Location.objects.all()
         self.assertTrue(len(locations) == 1)
     
+    def test_search_locations(self):
+        self.location.save_location()
+        locations = Location.objects.all()
+        self.assertTrue(len(locations) == 1)
+
+    
     def test_update_location(self):
         new_location = 'kericho'
         self.location.update_location(self.location.id, new_location)
@@ -93,8 +99,13 @@ class ArticleTestClass(TestCase):
         today_article = Article.todays_article()
         self.assertTrue(len(today_article)>0)
 
-    def test_get_news_by_date(self):
+    def test_get_article_by_date(self):
         test_date = '2017-03-17'
         date = dt.datetime.strptime(test_date, '%Y-%m-%d').date()
         news_by_date = Article.days_article(date)
         self.assertTrue(len(article_by_date) == 0)
+    
+    # def test_search_article(self):
+    #     search_title = self.new_article.filter(title)
+    #     self.assertTrue(self.new_article)
+

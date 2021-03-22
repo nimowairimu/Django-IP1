@@ -4,12 +4,14 @@ import datetime as dt
 # Create your models here.
 
 class Enthusiast(models.Model):
+    '''
+    This is a user model representing an animal health enthusiast who writes articles based
+    '''
     first_name = models.CharField(max_length =30)
     last_name = models.CharField(max_length =30)
     email = models.EmailField()
     phone_number = models.CharField(max_length = 10,blank =True)
-    # location = models.ForeignKey(Location)
-    # article = models.ForeignKey(Article)
+
 
    
     @classmethod
@@ -22,14 +24,16 @@ class Enthusiast(models.Model):
         cls.objects.filter(first_name=first_name).update(first_name=value)
 
     #
-    def __str__(self):
-        return self.first_name
+    
     
     def save_enthusiast(self):
         self.save()
     
     def delete_enthusiast(self):
         self.delete()
+    
+    def __str__(self):
+        return self.first_name
     
 
     
@@ -48,15 +52,18 @@ class Location(models.Model):
     def update_location(cls, id, value):
         cls.objects.filter(id=id).update(name=value)
 
+    # def search_location(self):
+    #     self.objects.
 
-    def __str__(self):
-        return self.name
     
     def save_location(self):
         self.save()
     
     def delete_location(self):
         self.delete()
+    
+    def __str__(self):
+        return self.name
 
        
 
@@ -69,7 +76,7 @@ class Article(models.Model):
     )
     pub_date = models.DateTimeField(auto_now_add=True)
     location = models.ManyToManyField(Location)
-    article_image = models.ImageField(upload_to = 'articles/')
+    article_image = models.ImageField(upload_to = 'articles/', default='image')
 
     @classmethod
     def todays_article(cls):
@@ -77,3 +84,8 @@ class Article(models.Model):
         news = cls.objects.filter(pub_date__date = today)
         return news
 
+    def save_location(self):
+        self.save()
+    
+    def delete_location(self):
+        self.delete()
