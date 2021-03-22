@@ -13,8 +13,12 @@ class Enthusiast(models.Model):
     def save_enthusiast(self):
         self.save()
     
-    class Meta:
-        ordering = ['first_name']
+    def delete_enthusiast(self):
+        self.delete()
+
+    
+    # class Meta:
+    #     ordering = ['first_name']
 
 class Location(models.Model):
     name = models.CharField(max_length = 40)
