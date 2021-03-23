@@ -1,4 +1,4 @@
-{% load bootstrap3 %}
+{% load django-bootstrap3 %}
 {% load static%}
 
 <!DOCTYPE html>
@@ -12,75 +12,40 @@
     {% bootstrap_css %}
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
   {% endblock %}
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Domine&display=swap" rel="stylesheet">
 
 </head>
 <body>
     {% include "navbar.html" %}
-    <!-- <div class="container">
-      <div class = "row">
-        <div class="column">
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="{% static 'sick1.jpeg'%}" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title"></h5>
-          <p class="card-text">Swine Fever.</p>
-          <p>Location : Kitale</p>
-          <button onclick="myFunction()" class="btn btn-success">Read More</button>
-          <div id="myDIV">
-            . profuse salivation - ropes of stringy saliva hangs from mouth
-            . vesicles appear in mouth and in the inter digital space
-            . lameness observed
-            . cross bred cattle are highly susceptible to it
+    <div id="homepage" class="carousel slide carousel-fade" data-ride="carousel">
+
+      <div class="carousel-inner" role="listbox">
+
+       \
+        <div class="carousel-item active" style="background-image: url(../static/images/hfvhv.webp);height: 700px;">
+          <div class="carousel-container">
+            <br><br><br>
+            <div class="carousel-content animate__animated animate__fadeInUp">
+                <h2 style="color:text-align center;font-size: 70px ;font-family:Domine ;">Welcome to <span>VetDaily</span></h2>
+                <br><br>
+               <h2 style ="text-align: center;font-family: Domine;font-size: 60px;color:black;">First Online application    <br> with animal lifestock diseases and their management  </h2>
+                <br><br><br><br>
+                <p style="color:black;text-align: center;font-size: 40px ;font-family: Domine;">We simplify document livestock diseases management for farmers to manage their cattle.</p>
             </div>
-          <script>function myFunction() {
-            var x = document.getElementById("myDIV");
-            if (x.style.display === "none") {
-              x.style.display = "block";
-            } else {
-              x.style.display = "none";
-            }
-          }
-
-          </script>
-      </div>
-     </div>
-
-     <div class="column">
-      <div class="card" style="width: 18rem;"></div>
-        <img class="card-img-top" src="{% static 'sick1.jpeg'%}" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title"></h5>
-          <p class="card-text">Swine Fever.</p>
-          <p>Location : Kitale</p>
-          <button onclick="myFunction()" class="btn btn-success">Read More</button>
-          <div id="myDIV">
-            . profuse salivation - ropes of stringy saliva hangs from mouth
-            . vesicles appear in mouth and in the inter digital space
-            . lameness observed
-            . cross bred cattle are highly susceptible to it
-            </div>
-          <script>function myFunction() {
-            var x = document.getElementById("myDIV");
-            if (x.style.display === "none") {
-              x.style.display = "block";
-            } else {
-              x.style.display = "none";
-            }
-          }
-
-          </script>
-      </div>
-     </div> -->
+          </div>
+        </div>
+    
 
      <div class="row">
       <div class="col-sm-4">
         <div class="card">
           <div class="card-body">
             <img class="card-img-top" src="{% static 'sick1.jpeg'%}" alt="Card image cap">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <h5 class="card-title" style = " font-family: Domine;font-weight: bold;">Pox</h5>
+            <h5 class="card-title" style = " font-family: Domine;font-weight: bold;">Location : Kajiado</h5>
             <button onclick="myFunction()" class="btn btn-success">Read More</button>
-            <div id="myDIV">
+            <div id="myDIV" style="font-family: Domine;">
               . profuse salivation - ropes of stringy saliva hangs from mouth
               . vesicles appear in mouth and in the inter digital space
               . lameness observed
@@ -88,6 +53,30 @@
               </div>
             <script>function myFunction() {
               var x = document.getElementById("myDIV");
+              if (x.style.display === "none") {
+                x.style.display = "block";
+              } else {
+                x.style.display = "none";
+              }
+            }
+  
+            </script>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-body">
+            <img class="card-img-top" src="{% static 'sick2.jpeg'%}" alt="Card image cap">
+            <h5 class="card-title" style = " font-family: Domine;font-weight: bold;">Foot and mouth disease</h5>
+            <h5 class="card-title" style = " font-family: Domine;font-weight: bold;">Location : Kinangop</h5>
+            <button onclick="myFunction2()" class="btn btn-success">Read More</button>
+            <div id="myDIV2" style="font-family: Domine;">
+              The foot-and-mouth disease is a highly communicable disease affecting cloven-footed animals. It is characterized by fever, formation of vesicles and blisters in the mouth, udder, teats and on the skin between the toes and above the hoofs. Animals recovered from the disease present a characteristically rough coat and deformation of the hoof.
+              </div>
+            <script>function myFunction2() {
+              var x = document.getElementById("myDIV2");
               if (x.style.display === "none") {
                 x.style.display = "block";
               } else {
@@ -102,11 +91,35 @@
       <div class="col-sm-4">
         <div class="card">
           <div class="card-body">
-            <img class="card-img-top" src="{% static 'sick1.jpeg'%}" alt="Card image cap">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <img class="card-img-top" src="{% static 'sick3.jpeg'%}" alt="Card image cap">
+            <h5 class="card-title" style="font-family: Domine;font-weight: bold;">Johne`s disease</h5>
+            <h5 class="card-title" style="font-family: Domine;font-weight: bold;">Location : Namanaga</h5>
+            <p class="card-text" style ="font-family: Domine;"></p>
+            <button onclick="myFunction3()" class="btn btn-success">Read More</button>
+            <div id="myDIV3" style="font-family: Domine;">
+              Johne`s disease is a specific chronic contagious enteritis of cattle, sheep, goat, buffaloes and occasionally of pigs. The disease is characterized by progressive emaciation and in cattle and buffaloes by chronic diarrhea and thickening of the intestine.
+              </div>
+            <script>function myFunction3() {
+              var x = document.getElementById("myDIV3");
+              if (x.style.display === "none") {
+                x.style.display = "block";
+              } else {
+                x.style.display = "none";
+              }
+            }
+  
+            </script>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="col-sm-4">
+        <div class="card">
+          <div class="card-body">
+            <img class="card-img-top" src="{% static 'sick3.jpeg'%}" alt="Card image cap">
+            <h5 class="card-title" style="font-family: Domine;">Special title treatment</h5>
+            <p class="card-text" style="font-family:Domine ;">With supporting text below as a natural lead-in to additional content.</p>
             <button onclick="myFunction()" class="btn btn-success">Read More</button>
-            <div id="myDIV">
+            <div id="myDIV" style="font-family: Domine;">
               . profuse salivation - ropes of stringy saliva hangs from mouth
               . vesicles appear in mouth and in the inter digital space
               . lameness observed
@@ -124,23 +137,20 @@
             </script>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <div class="col-sm-4">
         <div class="card">
           <div class="card-body">
-            <img class="card-img-top" src="{% static 'sick1.jpeg'%}" alt="Card image cap">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <button onclick="myFunction()" class="btn btn-success">Read More</button>
-            <div id="myDIV">
-              . profuse salivation - ropes of stringy saliva hangs from mouth
-              . vesicles appear in mouth and in the inter digital space
-              . lameness observed
-              . cross bred cattle are highly susceptible to it
+            <img class="card-img-top" src="{% static 'sick4.jpeg'%}" alt="Card image cap">
+            <h5 class="card-title" style="font-family: Domine;font-weight: bold;">Lesions</h5>
+            <h5 class="card-title" style="font-family: Domine;font-weight: bold;">Location : Machakos</h5>
+            <button onclick="myFunction5()" class="btn btn-success">Read More</button>
+            <div id="myDIV5" style="font-family: Domine;">
+              The most common lesions include polyserositis affecting pleural, pericardial, and peritoneal surfaces; serofibrinous polysynovitis, polyarthritis, polytendinitis, and cellulitis; and focal necrosis of skeletal muscles. Generalized edema of lymph nodes and lungs, as well as atelectasis, also may be present.
               </div>
-            <script>function myFunction() {
-              var x = document.getElementById("myDIV");
+            <script>function myFunction5() {
+              var x = document.getElementById("myDIV5");
               if (x.style.display === "none") {
                 x.style.display = "block";
               } else {

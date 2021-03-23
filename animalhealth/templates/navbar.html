@@ -1,3 +1,4 @@
+
 {% load static%}
 
 <!DOCTYPE html>
@@ -8,12 +9,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<nav class="navbar navbar-success">
-  <div class="container-fluid">
-    <!-- <a href="../"><img src="{% static 'cattle.png'%}" alt="cattle" width ="200" height="200"></a> -->
-    <div class="navbar-header">
-      <a class="navbar-brand" href="{% url 'articleToday' %}">VetDaily</a>
-    </div>
+  <nav class="mb-2 navbar navbar-expand-lg navbar bg-primary">
+    <img src="{% static 'images/l2.png' %}" alt="" height="100px">
+  <div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+        <li ><a style="color: white;font-family: Domine; " href="">Home</a></li>
+        <li ><a style="color: white;font-family: Domine; " href="{% url 'articleToday' %}">Articles</a></li>
+        <li><a style="color: white;font-family: Domine;" href="{% url 'about' %}">About Us</a></li>
+        
+        
+
+<ul class="nav navbar-nav navbar-right">
+  
+  
+    
+    <li><a style="color: white;font-family: Domine;" href=""><i class="fa fa-sign-in" aria-hidden="true"></i>Call Us : 0722345678 </a></li>
+  
+   
+   </ul>
+  </ul>
   </div>
 </nav>
 </body>

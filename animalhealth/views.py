@@ -3,7 +3,9 @@ from django.http  import HttpResponse,Http404
 import datetime as dt
 from .models import Article
 
-    
+def about(request):
+    return render(request, 'about.html')  
+
 def past_days_article(request,past_date):
     
 

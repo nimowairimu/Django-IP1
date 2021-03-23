@@ -76,7 +76,7 @@ class Article(models.Model):
     )
     pub_date = models.DateTimeField(auto_now_add=True)
     location = models.ManyToManyField(Location)
-    article_image = models.ImageField(upload_to = 'articles/', default='image')
+   
 
     @classmethod
     def todays_article(cls):
