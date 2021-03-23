@@ -20,4 +20,21 @@ By Irene Wairimu Mungai
 1. If everything else is good. Run the application. python manage.py runserver
 1. You will need Postgresql to work with the databases of the application.
 
-## 
+## Technologies Used
+1. Django
+1. Python
+1. Html
+1. Css
+1. Javascript
+1. Bootstrap
+
+## Bugs 
+There are no known bugs at the time of deployment
+
+## CONTACT INFORMATION
+- You can provide feedback or raise any issues/ bugs through my [Email](nimowairimu@gmail.com)
+  - Or you can call me on my [Cell](+254704529132)
+
+
+## License
+MIT LICENSE © 2021 Wairimu Mungai
